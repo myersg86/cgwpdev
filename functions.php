@@ -123,6 +123,20 @@ add_filter( 'genesis_seo_title', 'genesis_sample_header_inline_logo', 10, 3 );
  * @author @_JiveDig
  * @author @_srikat
  */
+
+add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
+	function theme_menu_extras( $menu, $args ) {
+	//* Change 'primary' to 'secondary' to add extras to the secondary navigation menu
+	if ( 'primary' !== $args->theme_location )
+		return $menu;
+	//* Uncomment this block to add a search form to the navigation menu
+	ob_start();
+	get_search_form();
+	$search = ob_get_clean();
+	$menu  .= '<li class="right search">' . $search . '</li>';
+	return $menu;
+}
+
 function genesis_sample_header_inline_logo( $title, $inside, $wrap ) {
 	// If the custom logo function and custom logo exist, set the logo image element inside the wrapping tags.
 	if ( function_exists( 'has_genesis_sample_logo' ) && has_genesis_sample_logo() ) {
