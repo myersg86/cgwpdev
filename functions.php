@@ -34,19 +34,10 @@ require_once( get_stylesheet_directory() . '/lib/customize.php' );
 // Include Customizer CSS.
 include_once( get_stylesheet_directory() . '/lib/output.php' );
 
-// Add WooCommerce support.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php' );
-
-// Add the required WooCommerce styles and Customizer CSS.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php' );
-
-// Add the Genesis Connect WooCommerce notice.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php' );
-
 // Child theme (do not remove).
-define( 'CHILD_THEME_NAME', 'Genesis Starter' );
-define( 'CHILD_THEME_URL', 'https://github.com/srikat/genesis-starter' );
-define( 'CHILD_THEME_VERSION', '2.3.0' );
+define( 'CHILD_THEME_NAME', 'CGWP_Dev' );
+define( 'CHILD_THEME_URL', 'https://github.com/myersg86/cgwpdev' );
+define( 'CHILD_THEME_VERSION', '2.3.1' );
 
 add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
 /**
@@ -210,6 +201,8 @@ function genesis_sample_comments_gravatar( $args ) {
 
 }
 
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 // Remove Header Right widget area.
 unregister_sidebar( 'header-right' );
 
@@ -313,7 +306,6 @@ add_filter( 'genesis_footer_creds_text', 'genesis_sample_footer_creds_filter' );
  * @link  https://my.studiopress.com/documentation/customization/shortcodes-reference/footer-shortcode-reference/
  */
 function genesis_sample_footer_creds_filter( $creds ) {
-	$creds = '[footer_copyright before="Copyright "] [footer_childtheme_link before ="&middot; "] on [footer_genesis_link] &middot; [footer_wordpress_link] &middot; [footer_loginout]';
-
+	$creds = '[footer_copyright before="Copyright "]';
 	return $creds;
 }
