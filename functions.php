@@ -164,13 +164,13 @@ add_filter( 'genesis_attr_site-description', 'genesis_sample_add_site_descriptio
  * @param array $attributes Current attributes.
  */
 
-add_filter( 'genesis_attr_site-description', 'genesis_sample_add_site_description_class' );
+function genesis_sample_add_site_description_class( $attributes ) {
 	if ( function_exists( 'has_genesis_sample_logo' ) && has_genesis_sample_logo() ) {
 		$attributes['class'] .= ' screen-reader-text';
 	}
-
 	return $attributes;
 }
+
 
 // Add support for custom background.
 add_theme_support( 'custom-background' );
