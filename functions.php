@@ -44,9 +44,9 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
  * Enqueue Scripts and Styles.
  * @return scripts and styles
  */
-function genesis_sample_enqueue_scripts_styles() {
 
-	wp_enqueue_style( 'genesis-sample-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700', array(), CHILD_THEME_VERSION );
+function genesis_sample_enqueue_scripts_styles() {
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Magra:400,700|Oswald:300,400,600,700', array(), 
 	wp_enqueue_style( 'dashicons' );
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -81,43 +81,12 @@ function genesis_sample_responsive_menu_settings() {
 }
 
 // Add HTML5 markup structure.
-add_theme_support( 'html5', array( 
-	'caption', 
-	'comment-form', 
-	'comment-list', 
-	'gallery', 
-	'search-form' 
-) );
-
+add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'search-form' ) );
 // Add Accessibility support.
-add_theme_support( 'genesis-accessibility', array( 
-	'404-page', 
-	'drop-down-menu', 
-	'headings', 
-	'rems', 
-	'search-form', 
-	'skip-links' 
-) );
-
+add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu', 'headings', 'rems', 'search-form', 'skip-links' ) );
 // Add viewport meta tag for mobile browsers.
 add_theme_support( 'genesis-responsive-viewport' );
 
-// Add support for custom logo.
-add_theme_support( 'custom-logo', array(
-	'width'       => 198,
-	'height'      => 132,
-	'flex-width' => true,
-	'flex-height' => true,
-	'header-text' => array( 'site-title' ),
-) );
-
-add_filter( 'genesis_seo_title', 'genesis_sample_header_inline_logo', 10, 3 );
-/**
- * Add an image inline in the site title element for the logo.
- * @param string $title Current markup of title.
- * @param string $inside Markup inside the title.
- * @param string $wrap Wrapping element for the title.
- */
 
 add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
 	function theme_menu_extras( $menu, $args ) {
@@ -132,46 +101,15 @@ add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
 	return $menu;
 }
 
-function genesis_sample_header_inline_logo( $title, $inside, $wrap ) {
-	// If the custom logo function and custom logo exist, set the logo image element inside the wrapping tags.
-	if ( function_exists( 'has_genesis_sample_logo' ) && has_genesis_sample_logo() ) {
-		$inside = sprintf( '<span class="screen-reader-text">%s</span>%s', esc_html( get_bloginfo( 'name' ) ), get_genesis_sample_logo() );
-	} else {
-		// If no custom logo, wrap around the site name.
-		$inside	= sprintf( '<a href="%s">%s</a>', trailingslashit( home_url() ), esc_html( get_bloginfo( 'name' ) ) );
-	}
-
-	// Build the title.
-	$title = genesis_markup( array(
-		'open'    => sprintf( "<{$wrap} %s>", genesis_attr( 'site-title' ) ),
-		'close'   => "</{$wrap}>",
-		'content' => $inside,
-		'context' => 'site-title',
-		'echo'    => false,
-		'params'  => array(
-			'wrap' => $wrap,
-		),
-	) );
-
-	return $title;
-}
-
-add_filter( 'genesis_attr_site-description', 'genesis_sample_add_site_description_class' );
-/**
- * Add class for screen readers to site description.
- * This will keep the site description markup but will not have any visual presence on the page
- * This runs if there is a logo image set in the Customizer.
- * @param array $attributes Current attributes.
- */
-
-function genesis_sample_add_site_description_class( $attributes ) {
-	if ( function_exists( 'has_genesis_sample_logo' ) && has_genesis_sample_logo() ) {
-		$attributes['class'] .= ' screen-reader-text';
-	}
-	return $attributes;
-}
-
-
+// Add support for custom header.
+add_theme_support( 'custom-header', array(
+	'width'           => 198,
+	'height'          => 132,
+	'header-selector' => '.site-title a',
+	'header-text'     => false,
+	'flex-height'     => true,
+) );
+					 
 // Add support for custom background.
 add_theme_support( 'custom-background' );
 
@@ -191,6 +129,21 @@ add_theme_support( 'genesis-menus', array(
 	'footer'    => __( 'Footer Navigation Menu', 'genesis-sample' ),
 ) );
 
+                     
+// Reposition the primary navigation menu.
+remove_action( 'genesis_after_header', 'genesis_do_nav' );
+add_action( 'genesis_header', 'genesis_do_nav' );
+
+// Reduce the secondary navigation menu to one level depth.
+add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
+function genesis_sample_secondary_menu_args( $args ) {
+	if ( 'secondary' != $args['theme_location'] ) {
+		return $args;
+	}
+	$args['depth'] = 1;
+	return $args;
+}
+                    
 // Modify size of the Gravatar in the author box.
 add_filter( 'genesis_author_box_gravatar_size', 'genesis_sample_author_box_gravatar' );
 function genesis_sample_author_box_gravatar( $size ) {
@@ -211,10 +164,6 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 // Remove Header Right widget area.
 unregister_sidebar( 'header-right' );
-
-// Reposition the primary navigation menu.
-remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header', 'genesis_do_nav' );
 
 // Remove Primary Navigation's structural wrap.
 add_theme_support( 'genesis-structural-wraps', array( 
