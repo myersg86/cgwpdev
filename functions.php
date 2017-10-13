@@ -87,15 +87,48 @@ add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu',
 // Add viewport meta tag for mobile browsers.
 add_theme_support( 'genesis-responsive-viewport' );
 
-// Add support for custom header.
-add_theme_support( 'custom-header', array(
-	'width'           => 198,
-	'height'          => 132,
-	'header-selector' => '.site-title a',
-	'header-text'     => false,
-	'flex-height'     => true,
+// Add support for custom logo.
+add_theme_support( 'custom-logo', array(
+	'width'       => 132,
+	'height'      => 198,
+	'flex-width' => true,
+	'flex-height' => true,
 ) );
-					 
+
+function custom_header_inline_logo( $title, $inside, $wrap ) {
+	// If the custom logo function and custom logo exist, set the logo image element inside the wrapping tags.
+	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$inside = sprintf( '<span class="screen-reader-text">%s</span>%s', esc_html( get_bloginfo( 'name' ) ), get_custom_logo() );
+	} else {
+		// If no custom logo, wrap around the site name.
+		$inside	= sprintf( '<a href="%s">%s</a>', trailingslashit( home_url() ), esc_html( get_bloginfo( 'name' ) ) );
+	}
+
+	// Build the title.
+	$title = genesis_markup( array(
+		'open'    => sprintf( "<{$wrap} %s>", genesis_attr( 'site-title' ) ),
+		'close'   => "</{$wrap}>",
+		'content' => $inside,
+		'context' => 'site-title',
+		'echo'    => false,
+		'params'  => array(
+			'wrap' => $wrap,
+		),
+	) );
+
+	return $title;
+}
+
+add_filter( 'genesis_attr_site-description', 'custom_add_site_description_class' );
+
+function custom_add_site_description_class( $attributes ) {
+	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$attributes['class'] .= ' screen-reader-text';
+	}
+
+	return $attributes;
+}
+
 // Add support for custom background.
 add_theme_support( 'custom-background' );
 
