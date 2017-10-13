@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
  */
 
 function genesis_sample_enqueue_scripts_styles() {
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Magra:400,700|Oswald:300,400,600,700', array(), 
+	wp_enqueue_style( 'genesis-sample-fonts',fonts.googleapis.com/css?family=Magra:400,700|Oswald:300,400,600,700', array(), CHILD_THEME_VERSION );
 	wp_enqueue_style( 'dashicons' );
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -86,20 +86,6 @@ add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'g
 add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu', 'headings', 'rems', 'search-form', 'skip-links' ) );
 // Add viewport meta tag for mobile browsers.
 add_theme_support( 'genesis-responsive-viewport' );
-
-
-add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
-	function theme_menu_extras( $menu, $args ) {
-	//* Change 'primary' to 'secondary' to add extras to the secondary navigation menu
-	if ( 'primary' !== $args->theme_location )
-		return $menu;
-	//* Uncomment this block to add a search form to the navigation menu
-	ob_start();
-	get_search_form();
-	$search = ob_get_clean();
-	$menu  .= '<li class="right search">' . $search . '</li>';
-	return $menu;
-}
 
 // Add support for custom header.
 add_theme_support( 'custom-header', array(
