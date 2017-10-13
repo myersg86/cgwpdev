@@ -104,24 +104,19 @@ add_theme_support( 'genesis-responsive-viewport' );
 
 // Add support for custom logo.
 add_theme_support( 'custom-logo', array(
-	'width'       => 600,
-	'height'      => 160,
+	'width'       => 198,
+	'height'      => 132,
 	'flex-width' => true,
 	'flex-height' => true,
+	'header-text' => array( 'site-title' ),
 ) );
 
 add_filter( 'genesis_seo_title', 'genesis_sample_header_inline_logo', 10, 3 );
 /**
  * Add an image inline in the site title element for the logo.
- *
  * @param string $title Current markup of title.
  * @param string $inside Markup inside the title.
  * @param string $wrap Wrapping element for the title.
- *
- * @author @_AlphaBlossom
- * @author @_neilgee
- * @author @_JiveDig
- * @author @_srikat
  */
 
 add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
@@ -166,13 +161,10 @@ add_filter( 'genesis_attr_site-description', 'genesis_sample_add_site_descriptio
  * Add class for screen readers to site description.
  * This will keep the site description markup but will not have any visual presence on the page
  * This runs if there is a logo image set in the Customizer.
- *
  * @param array $attributes Current attributes.
- *
- * @author @_neilgee
- * @author @_srikat
  */
-function genesis_sample_add_site_description_class( $attributes ) {
+
+add_filter( 'genesis_attr_site-description', 'genesis_sample_add_site_description_class' );
 	if ( function_exists( 'has_genesis_sample_logo' ) && has_genesis_sample_logo() ) {
 		$attributes['class'] .= ' screen-reader-text';
 	}
@@ -236,8 +228,6 @@ add_filter( 'theme_page_templates', 'genesis_sample_remove_genesis_page_template
 /**
  * Remove Genesis Page Templates.
  *
- * @author Bill Erickson
- * @link http://www.billerickson.net/remove-genesis-page-templates
  *
  * @param array $page_templates
  * @return array
@@ -251,12 +241,6 @@ function genesis_sample_remove_genesis_page_templates( $page_templates ) {
 // Add single post navigation.
 add_action( 'genesis_after_entry', 'genesis_prev_next_post_nav' );
 add_action( 'genesis_after_loop', 'genesis_adjacent_entry_nav' );
-
-// Display author box on single posts.
-// add_filter( 'get_the_author_genesis_author_box_single', '__return_true' );
-
-// Display author box on archive pages.
-// add_filter( 'get_the_author_genesis_author_box_archive', '__return_true' );
 
 add_action( 'genesis_theme_settings_metaboxes', 'genesis_sample_remove_metaboxes' );
 /**
