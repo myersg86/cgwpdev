@@ -2219,3 +2219,250 @@ a img {
 	}
 
 }
+
+/*custom styles begin*/
+
+/* CAROUSEL */
+
+.carousel-item>img {
+	max-width: 300px!important;
+}
+
+#carouselExampleControls {
+	background: url(https://www.cleangreencert.org/wp-content/uploads/2016/06/another-newspaper.jpg) repeat scroll top center rgba(0, 0, 0, 0);
+}
+
+.carousel-inner {
+	padding-bottom: 100px;
+}
+
+.carousel-caption {
+	bottom: -25%;
+	font-color: white!important;
+}
+
+/* keyframe animations */
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+	50% {
+		-webkit-transform: scale3d(1.05, 1.05, 1.05);
+		transform: scale3d(1.05, 1.05, 1.05)
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+}
+
+@-moz-keyframes pulse {
+	0% {
+		-moz-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+	50% {
+		-moz-transform: scale3d(1.05, 1.05, 1.05);
+		transform: scale3d(1.05, 1.05, 1.05)
+	}
+	to {
+		-moz-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+}
+
+@keyframes pulse {
+	0% {
+		-webkit-transform: scaleX(1);
+		-moz-transform: scaleX(1);
+		-o-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+	50% {
+		-webkit-transform: scale3d(1.05, 1.05, 1.05);
+		-moz-transform: scale3d(1.05, 1.05, 1.05);
+		transform: scale3d(1.05, 1.05, 1.05)
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		-moz-transform: scaleX(1);
+		-o-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+}
+
+body,
+a,
+p {
+	font-family: 'Raleway', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+	color: #3d3d3d;
+	text-shadow: 0 0 0 transparent!important;
+	font-size: 1.6rem;
+}
+
+.btn {
+	font-size: 16px;
+	padding: .5em 1em;
+	-webkit-border-radius: .25rem;
+	-moz-border-radius: .25rem;
+	border-radius: .25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-rendering: optimizeLegibility;
+	font-family: 'Magra', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+	text-align: left;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+strong,
+b {
+	font-weight: bold;
+	line-height: inherit;
+}
+
+body,
+body p {
+	text-align: justify;
+}
+
+body h1 {
+	font-size: 30px !important;
+	font-weight: 700 !important;
+}
+
+blockquote {
+	background-color: #f5f5f5;
+	box-shadow: 0 0 10px #ccc;
+	margin: 0 0 10px;
+	padding: 30px;
+}
+
+blockquote>p {
+	margin: 0;
+}
+
+.site-footer {
+	background-color: #f5f5f5;
+	box-shadow: 0 0 10px #ccc;
+	padding: 60px 0 0;
+}
+
+.site-footer .wrap {
+	max-width: 100%;
+}
+
+.site-footer .wrap>p {
+	background-color: #0c400f;
+	text-align: center;
+	color: #fff;
+	padding: 10px;
+}
+
+img {
+	max-width: 100%;
+	border-style: none;
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+}
+
+.site-header>.wrap>.title-area {
+	padding: 10px 0 0 !important;
+	position: absolute;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 1341px) {
+	.site-header>.wrap {
+		min-width: 90%!important;
+		margin-left: 100px;
+	}
+	.genesis-nav-menu {
+		font-size: 1.8rem;
+	}
+}
+
+@media screen and (max-width:997px) {
+	.site-header>.wrap>.title-area {
+		position: static;
+		max-width: 100px;
+	}
+	.site-footer .wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	body h1 {
+		font-size: 22px !important;
+		font-weight: 700 !important;
+	}
+}
+
+@media only screen and (min-width: 998px) {
+	.site-header,
+	.site-header .wrap,
+	.genesis-responsive-menu {
+		padding: 0;
+		max-height: 100px;
+		background-color: rgb(12, 64, 15);
+	}
+	.title-area {
+		min-height: 198px;
+		z-index: 100;
+		-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+		-moz-box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+		top: -10px;
+	}
+	#menu-primary-navigation a {
+		color: white;
+	}
+	#menu-primary-navigation a:hover,
+	#menu-primary-navigation a span:hover,
+	#menu-primary-navigation a:focus,
+	#menu-primary-navigation a span:focus,
+	#menu-primary-navigation a:active,
+	#menu-primary-navigation a span:active,
+	.genesis-nav-menu .current-menu-item>a {
+		color: #ccc;
+		text-decoration: none;
+	}
+	.sub-menu>.menu-item>a,
+	.sub-menu>.menu-item>a>span {
+		color: #000;
+	}
+	.site-header {
+		margin: 0 auto;
+		min-height: 100px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1198px) {
+	.slide-image img {
+		width: 1140px;
+	}
+}

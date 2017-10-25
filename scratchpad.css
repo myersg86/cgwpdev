@@ -1,0 +1,236 @@
+body,
+a,
+p {
+    font-family: 'Raleway', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+    color: #3d3d3d;
+    text-shadow: 0 0 0 transparent!important;
+    font-size: 1.6rem;
+}
+.btn {
+    font-size: 16px;
+    padding: .5em 1em;
+    border-radius: .25rem;
+    ;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-rendering: optimizeLegibility;
+    font-family: 'Magra', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+}
+em,
+i {
+    font-style: italic;
+}
+strong,
+b {
+    font-weight: bold;
+    line-height: inherit;
+}
+.genesis-nav-menu,
+.site-footer,
+.site-header {
+    background-color: rgb(12, 64, 15);
+}
+.menu-toggle {
+  background-color: #0c400f;
+}
+/**/
+.site-container {
+  max-width: 100%;
+}
+.nav-primary, .genesis-responsive-menu{}
+#genesis-nav-primary {
+    background-color: rgb(12, 64, 15);
+}
+.site-header .wrap, #genesis-nav-primary .wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+#genesis-nav-primary {
+box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+
+}
+.home-cta {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)
+}
+.site-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.home-top,
+.home-middle {
+    padding: 15px 0;
+}
+.home-top .widget,
+.home-middle .widget {
+    width: 100%;
+}
+.genesis-nav-menu {
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+#custom_html-17 img:hover {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+@keyframes pulse {
+    0% {
+        transform: scaleX(1)
+    }
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+    to {
+        transform: scaleX(1)
+    }
+}
+.carousel-item > img {
+    max-width: 300px!important;
+}
+#carouselExampleControls {
+    background: url(https://www.cleangreencert.org/wp-content/uploads/2016/06/another-newspaper.jpg) repeat scroll top center rgba(0, 0, 0, 0);
+}
+.carousel-inner {
+    padding-bottom: 100px;
+}
+.carousel-caption {
+    bottom: -25%;
+    font-color: white!important;
+}
+@media only screen and (max-width: 800px) {
+    .home-middle,
+    .home-top,
+    .genesis-pro-portfolio .pro-portfolio.entry .entry-header .entry-title {
+        text-align: start;
+    }
+}
+@media (min-width: 992px) {
+    #ajaxsearchlite1 {
+        min-width: 300px;
+    }
+}
+/* Responsive image hacks */
+
+img {
+    max-width: 100%;
+    border-style: none;
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+@media screen and (min-width: 1198px) {
+    .slide-image img {
+        width: 1140px;
+    }
+}
+/* Nav */
+
+#genesis-mobile-nav-primary {
+    border: 1px solid #333!important;
+    border-radius: 0 0 5px 5px;
+}
+@media (max-width: 786px) {
+    .site-header .widget {
+        padding: 0 0;
+        margin-bottom: 5px;
+    }
+}
+#wpcom_social_media_icons_widget-3,
+#ajaxsearchlitewidget-3 {
+    display: inline-flex;
+}
+.widget-area.header-widget-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#ajaxsearchlite1 {
+    min-width: 200px;
+}
+/* Set standard behavior across devices */
+
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+/*AJAX SEARCH LITE*/
+
+#ajaxsearchlite1 *,
+.wpdreams_asl_container *,
+#ajaxsearchlite1 .probox .proinput input,
+div[id*="ajaxsearchlite"] .probox .proinput input,
+#ajaxsearchlite1 .probox .proinput,
+div[id*="ajaxsearchlite"] .probox .proinput,
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+#ajaxsearchlite1 .probox .proinput input,
+div[id*="ajaxsearchlite"] .probox .proinput input,
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Raleway', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+}
+#ajaxsearchlite1 .probox,
+div[id*="ajaxsearchlite"] .probox {
+    border-radius: 5px!important;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+}
+div[id*="ajaxsearchliteres"].vertical {
+    margin-top: -8px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
+div[id*="ajaxsearchliteres"] .results .item .asl_content h3,
+div[id*="ajaxsearchliteres"] .results .item .asl_content h3 a,
+div[id*="ajaxsearchliteres"] .results .nores .keyword,
+div[id*="ajaxsearchlite"] .probox .proinput input:-moz-placeholder,
+div[id*="ajaxsearchlite"] .probox .proinput input.autocomplete,
+div[id*="ajaxsearchlite"] .probox .proinput input:-ms-input-placeholder,
+div[id*="ajaxsearchlite"] .probox .proinput input::-moz-placeholder,
+div[id*="ajaxsearchlite"] .probox .proinput input::-webkit-input-placeholder,
+#ajaxsearchlite1 .probox .proinput input,
+div[id*="ajaxsearchlite"] .probox .proinput input,
+#ajaxsearchlite1 .probox .proinput,
+div[id*="ajaxsearchlite"] .probox .proinput,
+div[id*="ajaxsearchliteres"] .results .item .asl_content h3 a:hover,
+div[id*="ajaxsearchliteres"] .results .item div.etc,
+div[id*="ajaxsearchliteres"] .results .item .etc .asl_author,
+div[id*="ajaxsearchliteres"] .results .item .etc .asl_date,
+div[id*="ajaxsearchliteres"] .results .item p.desc,
+div[id*="ajaxsearchlitesettings"].searchsettings .label,
+div[id*="ajaxsearchlitesettings"].searchsettings fieldset legend,
+div[id*="ajaxsearchliteres"] p.showmore,
+div[id*="ajaxsearchliteres"] p.showmore a,
+.results .asl_nores .asl_keyword {
+    font-family: 'Raleway', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif!important;
+    line-height: normal;
+}
