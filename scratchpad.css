@@ -1,3 +1,151 @@
+.col {
+    display: grid;
+    grid-gap: 40px;
+    hyphens: auto;
+}
+
+.col-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.col-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.col-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.col-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.col-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+---
+
+@media screen and (min-width: 1198px) {
+    .slide-image img {
+        width: 1140px;
+    }
+}
+
+---
+
+@media screen and (max-width:997px) {
+    .site-header>.wrap>.title-area {
+        position: static;
+        max-width: 100px;
+    }
+    .site-footer .wrap {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    body h1 {
+        font-size: 22px !important;
+        font-weight: 700 !important;
+    }
+}
+
+---
+@media screen and (max-width:997px) {
+    .site-header>.wrap>.title-area {
+        position: static;
+        max-width: 100px;
+    }
+    .site-footer .wrap {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    body h1 {
+        font-size: 22px !important;
+        font-weight: 700 !important;
+    }
+}
+
+---
+
+
+--
+/*custom styles begin*/
+
+/* CAROUSEL */
+
+.carousel-item>img {
+    max-width: 300px!important;
+}
+
+#carouselExampleControls {
+    background: url(https://www.cleangreencert.org/wp-content/uploads/2016/06/another-newspaper.jpg) repeat scroll top center rgba(0, 0, 0, 0);
+}
+
+.carousel-inner {
+    padding-bottom: 100px;
+}
+
+.carousel-caption {
+    bottom: -25%;
+    font-color: white!important;
+}
+
+/* keyframe animations */
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        -moz-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+    50% {
+        -moz-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+    to {
+        -moz-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scaleX(1);
+        -moz-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        -moz-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+    to {
+        -webkit-transform: scaleX(1);
+        -moz-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+
+---
+
+
 body,
 a,
 p {

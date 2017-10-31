@@ -1,6 +1,6 @@
 # Genesis Starter Theme
 
-Starter theme for Genesis framework based on Genesis Sample 2.3.0.
+Starter theme for Genesis framework based on Genesis Sample 2.3.1.
 
 [**Demo**](http://genesis-starter.wpdemos.co/)
 
